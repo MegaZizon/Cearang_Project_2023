@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <link href="/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <div class="top">
+        <div class="left"></div>
+        <div class="top-center-mid">
+            <div class="top-center">
+                <div >
+                    
+                    <a id="sign-btn" class="sign-btn" href="#">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="triangle"></div>
+                <div class="user-container">
+                    <div class="cs-center">
+                        고객센터
+                    </div>
+                    <div class="signup">
+                        회원가입
+                        
+                    </div>
+                    <div class="signin">
+                        로그인
+                    </div>
+                </div>
+
+            </div>
+            <div class="logo">
+                <i>Recipick!</i>
+
+            </div>
+            <div class="search-menu">
+                <div class="category-box">
+                    <div class="selectBox2 ">
+                        <button class="label">Category&nbsp&nbsp▼</button>
+                        <ul class="optionList">
+                          <li class="optionItem">재료</li>
+                          <li class="optionItem">레시피</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-box">
+                    
+                    <input type="text" class="search-txt" name=""placeholder="Search">
+                    <a class="search-btn" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right"></div>
+    </div>
+    <div class="content">
+        <div class="left"></div>
+        <div class="center">
+            
+            <div class="center-bottom">
+                <div class="center-bottom-top-box">
+                    <div class="center-bottom-title">
+                        오늘의 Best 레시피
+                    </div>
+                    <div class="all-view">
+                        모두보기
+                    </div>
+                </div>
+                
+                <div class="product-list">
+                    <li class="product">
+                        <div class="product-image-box">
+                            <img class="product-image" src="1.jpg" alt="이미지 설명">
+                        </div>
+                        <div class="product-caption">
+                            가을을 담은 홍시타르트와 곶감치즈말이
+                        </div>
+                        <div class="product-caption-details">
+                            임채정 / 조회수 898회
+                        </div>
+                    </li>
+                    <li class="product">
+                            <div class="product-image-box">
+                                <img class="product-image" src="2.jpg" alt="이미지 설명">
+                            </div>
+                        <div class="product-caption">
+                            달콤하고 고소한 쌀우유크림 밀푀유
+                        </div>
+                        <div class="product-caption-details">
+                            임채정 / 조회수 898회
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-image-box">
+                            <img class="product-image" src="3.jpg" alt="이미지 설명">
+                        </div>
+                    <div class="product-caption">
+                        한식 한상차림
+                    </div>
+                    <div class="product-caption-details">
+                        백승준 / 조회수 115회 
+                    </div>
+                </li>
+                <li class="product">
+                    <div class="product-image-box">
+                        <img class="product-image" src="4.jpg" alt="이미지 설명">
+                    </div>
+                <div class="product-caption">
+                    서울식 배추김치
+                </div>
+                <div class="product-caption-details">
+                    이하연 / 조회수 772회 
+                </div>
+            </li>
+            <li class="product">
+                <div class="product-image-box">
+                    <img class="product-image" src="5.png" alt="이미지 설명">
+                </div>
+            <div class="product-caption">
+                메론 비쉬시아즈와 아몬드 젤리를 곁들인 아보카도 킹크랩
+            </div>
+            <div class="product-caption-details">
+                박효남 / 조회수 686회 
+            </div>
+        </li>
+                    
+                </div>
+
+            </div>
+        </div>
+        <div class="right"></div>
+    </div>
+    <div class="bottom">
+
+    </div>
+</body>
+<script>
+    /* 화살표 함수 */
+    const label = document.querySelector('.label');
+    const options = document.querySelectorAll('.optionItem');
+
+    // 클릭한 옵션의 텍스트를 라벨 안에 넣음
+    const handleSelect = (item) => {
+    label.parentNode.classList.remove('active');
+    label.innerHTML = item.textContent;
+    }
+    // 옵션 클릭시 클릭한 옵션을 넘김
+    options.forEach(option => {
+        option.addEventListener('click', () => handleSelect(option))
+    })
+
+    // 라벨을 클릭시 옵션 목록이 열림/닫힘
+    label.addEventListener('click', () => {
+    if(label.parentNode.classList.contains('active')) {
+        label.parentNode.classList.remove('active');
+    } else {
+        label.parentNode.classList.add('active');
+    }
+    })
+    $('#sign-btn').mouseover(function(){
+        
+        $('.user-container').addClass('active');
+        $('.triangle').css({
+            display: 'block'
+        });
+        
+    });
+    $('.top-center').mouseleave(function(){
+        
+        $('.user-container').removeClass('active');
+        $('.triangle').css({
+            display: 'none'
+        });
+    });
+    
+
+
+</script>
+</html>
